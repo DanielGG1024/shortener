@@ -13,7 +13,7 @@ function generator() {
         let randomIndex = Math.floor(Math.random() * collection.length)
         password += collection[randomIndex]
     }
-    console.log(password)
+    return password
 }
 
-generator()
+module.exports = generator
