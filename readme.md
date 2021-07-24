@@ -2,8 +2,7 @@
 
 # shortener
 
-![image](https://github.com/DanielGG1024/restaurant/blob/main/%E5%B9%B9%E8%A9%B1.png)
-
+![image]
 ## Features
 
  縮短你的網址
