@@ -5,7 +5,7 @@ const shortenerSchema = new Schema({
         type: String,
         require: true
     },
-    password: {
+    shorten: {
         type: String,
         require: true
     }
