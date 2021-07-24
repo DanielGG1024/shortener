@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Shortener = require('../../models/shortener')
 const generator = require('../../tools/generator')
-const mainUrl = 'http://localhost:3000/'
+
 
 router.get('/', (req, res) => {
     res.render('index')
@@ -10,6 +10,9 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const originUrl = req.body.url
+    const mainUrl = req.headers.host
+    const protocol = req.protocol
+    console.log(protocol)
     Shortener
         .find()
         .lean()
@@ -17,12 +20,12 @@ router.post('/', (req, res) => {
             newShorten = allUrl.find(eachUrl => eachUrl.originUrl === originUrl)
 
             if (newShorten) {
-                newShorten = mainUrl + newShorten.shorten
+                newShorten = protocol + '://' + mainUrl + '/' + newShorten.shorten
                 return res.render('show', { newShorten, originUrl })
             }
 
             let shorten = generator()
-            newShorten = mainUrl + shorten
+            newShorten = protocol + '://' + mainUrl + '/' + shorten
 
             while (allUrl.some(eachUrl => eachUrl.shorten === shorten)) {
                 shorten = generator()
