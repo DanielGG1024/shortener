@@ -2,7 +2,7 @@
 
 # shortener
 
-![image]
+![image](https://github.com/DanielGG1024/shortener/blob/main/shortener.png)
 ## Features
 
  縮短你的網址
